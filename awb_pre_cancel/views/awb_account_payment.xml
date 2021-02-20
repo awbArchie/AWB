@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+	<!-- ACS: Inherit the sale order model's form view and customize -->
+	<record id="view_account_payment_form_awb" model="ir.ui.view">
+		<field name="name">account.payment.form.inherit_awb</field>
+		<field name="model">account.payment</field>
+		<field name="inherit_id" ref="account.view_account_payment_form"/>
+		<field name="priority">2000</field>
+		<field name="arch" type="xml">
+
+			
+			<!-- ACS: Add New Button for Pre Cancel-->
+			<xpath expr="//form/header/button[@name='cancel']" position="before">
+			<button name="action_precancel" states="draft,posted,sent" string="Pre Cancel" type="object"/>
+			</xpath>
+			
+			<xpath expr="//form/header/button[@name='cancel']" position="replace">
+				<button name="cancel" type="object" string="Cancel" 
+						attrs="{'invisible': [('state', '!=', 'preCancel')]}"/>
+			</xpath>
+		</field>
+	</record>
+</data>
+ </odoo>
