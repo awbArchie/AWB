@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 <data>
-	<!-- ACS: Inherit the sale order model's form view and customize -->
+	<!-- ACS: Inherit the account move model's form view and customize -->
 	<record id="view_account_move_form_awb" model="ir.ui.view">
 		<field name="name">account.move.form.inherit_awb</field>
 		<field name="model">account.move</field>
